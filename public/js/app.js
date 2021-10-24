@@ -17,8 +17,9 @@ weatherForm.addEventListener('submit', (e)=>{ //e stands for event
 
     messageone.textContent = 'Loading...'
     messagetwo.textContent = '' //Clear value if any from previous search
+    //Now when we are using Heroku we need to remove http://localhost:3000 from the below url in fetch
 
-    fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+    fetch('/weather?address='+location).then((response)=>{
     response.json().then((data)=>{
         if(data.error){
           messageone.textContent = data.error
