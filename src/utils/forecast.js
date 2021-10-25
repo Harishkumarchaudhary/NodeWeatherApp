@@ -12,9 +12,11 @@ const forecast = (longitude, latitude, callback)=>{
            callback(body.error)
         } else{
             const current = body.current
+            console.log(current)
             const temp = current.temperature
             const feelsliketemp = current.feelslike
-            callback(undefined, current.weather_descriptions[0]+". The temp is: "+temp)
+            callback(undefined, current.weather_descriptions[0]+". The temp is: "+temp + "Kelvin. The visibili" 
+            + "ty is "+current.visibility+"% and wind speed is "+current.wind_speed+"km/hr")
             //console.log(current.weather_descriptions[0]+". The temperature is: "+temp+" and "+" temp feels like it is: "+feelsliketemp)
         }
     })
